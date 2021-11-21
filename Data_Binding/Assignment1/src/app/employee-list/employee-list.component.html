@@ -1,0 +1,38 @@
+<table class="table table-secondary table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">EmployeeID</th>
+        <th scope="col">FirstName</th>
+        <th scope="col">LastName</th>
+        <th scope="col">Salary</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Email</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+  <!-- </table>
+<table class="table-secondary"> -->
+  <tbody *ngIf='!showEdit'>
+    <tr>
+      <td><input type="text" [(ngModel)]="employeeID"></td>
+      <td><input type="text" [(ngModel)]="firstName"></td>
+      <td><input type="text" [(ngModel)]="lastName"></td>
+      <td><input type="text" [(ngModel)]="salary "></td>
+      <td><input type="text" [(ngModel)]="dob"></td>
+      <td><input type="text" [(ngModel)]="email"></td>
+      <td><button type="button" class="btn btn-primary" (click)="Update()">Update</button></td>
+    </tr>
+  </tbody>
+
+  <tbody *ngIf='showEdit'>
+    <tr>
+      <td>{{this.employee.employeeID}}</td>
+      <td>{{this.employee.firstName}}</td>
+      <td>{{this.employee.lastName}}</td>
+      <td>{{this.employee.salary}}</td>
+      <td>{{this.employee.dob}}</td>
+      <td>{{this.employee.email}}</td>
+      <td><button type="button" class="btn btn-primary" (click)="EditEmp()">Edit</button></td>
+    </tr>
+  </tbody>
+</table>
