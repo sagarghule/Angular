@@ -1,0 +1,91 @@
+
+<section class="vh-120">
+    <div class="container py-5 h-20">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-7">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+  
+              <h3 ><b>Sign Up</b></h3>
+              <p class="mb-5">To be a member</p>
+  
+              <div>
+                <form [formGroup]="registerForm" class="form-outline mb-4">
+                    <div class="row">
+                        <div class="form-group d-flex flex-row align-items-center mb-4 col">
+                          <i class="fas fa-user fa-lg me-3 fa-fw" style="margin-left: -10px;"></i>
+                          <div class="form-outline">
+                             <!-- First Name -->
+                             <input type="text" style="margin-left: 5px;" formControlName="fname" class="form-control" placeholder="First Name" >
+                             <!-- Validation of Name Field -->
+                             <div class="alert alert-danger" *ngIf="submitted && f.fname.errors && f.fname.errors.required">First name is required</div>
+                          </div>
+                        </div>
+                        <div class="form-group d-flex flex-row align-items-center mb-4 col">
+                          <i class="fas fa-user fa-lg me-3 fa-fw" style="margin-left: 10px;"></i>
+                          <div class="form-outline">
+                           <!-- Last Name -->
+                           <input type="text" style="margin-left: 5px;" formControlName="lname" class="form-control" placeholder="Last Name" >
+                           <!-- Validation of Name Field -->
+                           <div class="alert alert-danger" *ngIf="submitted && f.lname.errors && f.lname.errors.required">Last name is required</div>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <div class="row">
+                        <div class="form-group d-flex flex-row align-items-center mb-4 col">
+                          <i class="fas fa-mobile fa-lg me-3 fa-fw" style="margin-left: -10px;"></i>
+                          <div class="form-outline">
+                            <input type="text" style="margin-left: 5px;" formControlName="phonenum" class="form-control" placeholder="Mobile No.">
+                            <!-- Validation of Mobile Number Field -->
+                            <div class="alert alert-danger" *ngIf="submitted && f.phonenum.errors && f.phonenum.errors.required">Mobile Number is required</div>
+                            <div class="alert alert-danger" *ngIf="submitted && f.phonenum.errors && (f.phonenum.errors.minlength || f.phonenum.errors.maxlength)">Mobile number must be 10 digits</div>
+                          </div>
+                        </div>
+                        <div class="form-group d-flex flex-row align-items-center mb-4 col">
+                            <i class="fas fa-envelope fa-lg me-3 fa-fw" style="margin-left: 10px;"></i>
+                          <div class="form-outline">
+                            <input type="email" style="margin-left: 5px;" formControlName="email" class="form-control" placeholder="Enter email">
+                            <!-- Validation of Email Field -->
+                            <div class="alert alert-danger" *ngIf="submitted && f.email.errors && f.email.errors.required">Email is required</div>
+                            <div class="alert alert-danger" *ngIf="submitted && f.email.errors && f.email.errors.email">Enter a valid email address, e.g., john@example.com</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="form-group d-flex flex-row align-items-center mb-4 col">
+                            <i class="fas fa-lock fa-lg me-3 fa-fw" style="margin-left: -10px;"></i>
+                          <div class="form-outline">
+                            <input type="password" style="margin-left: 5px;" formControlName="password" class="form-control" placeholder="Password">
+                            <!-- Validation of Password Field -->
+                            <div class="alert alert-danger" *ngIf="submitted && f.password.errors && f.password.errors.required">Password is required</div>
+                            <div class="alert alert-danger" *ngIf="submitted && f.password.errors && f.password.errors.minlength">Password must be at least 6 characters</div>
+                          </div>
+                        </div>
+                        <div class="form-group d-flex flex-row align-items-center mb-4 col">
+                            <i class="fas fa-key fa-lg me-3 fa-fw" style="margin-left: 10px;"></i>
+                          <div class="form-outline">
+                            <input type="password" style="margin-left: 5px;" formControlName="confirmPassword" class="form-control" placeholder="Confirm Password">
+                            <!-- Validation of Confirm Password Field -->
+                            <div class="alert alert-danger" *ngIf="submitted && f.confirmPassword.errors && f.confirmPassword.errors.required">Confirm Password is required</div>
+                            <div class="alert alert-danger" *ngIf="submitted && f.confirmPassword.errors && f.confirmPassword.errors.mustMatch">Passwords do not match</div>
+                          </div>
+                        </div>
+                      </div>
+                
+                    <!-- Submit Sign Up form -->
+                    <hr class="my-4">
+                    <button (click)=onSubmit() class="btn btn-dark btn-lg btn-block">Submit</button>
+
+                    <hr class="my-4">
+                    <label>Already a member? </label> 
+                    <button (click)=login() class="btn btn-dark btn-lg btn-block">Sign In</button>
+                </form>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

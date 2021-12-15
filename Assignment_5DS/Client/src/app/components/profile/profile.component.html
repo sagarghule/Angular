@@ -1,0 +1,140 @@
+
+<section class="vh-120">
+    <div class="container py-5 h-20">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-10 col-lg-10 col-xl-10">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5">
+                <div class="text-center">
+                    <h3 ><b>{{fname + " " + lname}}</b></h3>
+                     <p class="mb-5">Web Developer and Designer</p>
+                </div>
+                <br>
+                <div>
+                    <form [formGroup]="profileForm" class="form-outline mb-4">
+                        <div class="row ">
+                            <div class="col-md-4">
+                                <div class="profile-img">
+                                    <img [src]="image" alt="profile photo"/>
+                                    <div *ngIf="editmode" class="file btn btn-lg btn-primary">
+                                        Change Photo
+                                        <input (change)="onFileSelect($event)" type="file" name="file"/>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <div class="col-md-8">
+                                
+                                <div class="row ">
+                                    <div class="col-md-8">
+                                        <div class="profile-head">
+                                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="button" *ngIf="!editmode" class="profile-edit-btn text-white" (click)="editProfile()" name="btnAddMore" value="Edit Profile"/>
+                                    </div>
+                                </div>
+                  
+                                
+                                <div class="row ">
+                                    <div class="col-md-8">
+                                        <div class="tab-content profile-tab" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label>First Name</label>
+                                                        </div>
+                                                        <div *ngIf="!editmode" class="col-md-6">
+                                                            <p>{{fname}}</p>
+                                                        </div>
+                                                        <div *ngIf="editmode" class="col-md-6">
+                                                            <input formControlName="fname" class="form-control" value="{{fname}}">
+                                                            <div class="alert alert-danger" *ngIf="submitted && f.fname.errors && f.fname.errors.required">First name is required</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label>Last Name</label>
+                                                        </div>
+                                                        <div *ngIf="!editmode" class="col-md-6">
+                                                            <p>{{lname}}</p>
+                                                        </div>
+                                                        <div *ngIf="editmode" class="col-md-6">
+                                                            <input formControlName="lname" class="form-control" value="{{lname}}">
+                                                            <div class="alert alert-danger" *ngIf="submitted && f.lname.errors && f.lname.errors.required">Last name is required</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label>Email</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p>{{email}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label>Phone</label>
+                                                        </div>
+                                                        <div *ngIf="!editmode" class="col-md-6">
+                                                            <p>{{phone}}</p>
+                                                        </div>
+                                                        <div *ngIf="editmode" class="col-md-6">
+                                                            <input type="text" formControlName="phonenum" class="form-control" value="{{phone}}">
+                                                            <div class="alert alert-danger" *ngIf="submitted && f.phonenum.errors && f.phonenum.errors.required">Mobile Number is required</div>
+                                                            <div class="alert alert-danger" *ngIf="submitted && f.phonenum.errors && (f.phonenum.errors.minlength || f.phonenum.errors.maxlength)">Mobile number must be 10 digits</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label>Address</label>
+                                                        </div>
+                                                        <div *ngIf="!editmode" class="col-md-6">
+                                                            <p>{{address}}</p>
+                                                        </div>
+                                                        <div *ngIf="editmode" class="col-md-6">
+                                                            <input formControlName="address" class="form-control" value="{{address}}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label>City</label>
+                                                        </div>
+                                                        <div *ngIf="!editmode" class="col-md-6">
+                                                            <p>{{city}}</p>
+                                                        </div>
+                                                        <div *ngIf="editmode" class="col-md-6">
+                                                            <input formControlName="city"  class="form-control" value="{{city}}">
+                                                        </div>
+                                                    </div>
+                                                
+                                                    <br>
+                                                    <hr class="my-4">
+                                                    <div class="col-md-4" style="float: left; padding: 3%;">
+                                                        <input type="button" *ngIf="editmode" class="btn profile-edit-btn text-white" (click)="onSubmit()" name="btnAddMore" value="Submit"/>
+                                                    </div>
+                                                    <div class="col-md-4" style ="float: right; padding: 3%;">
+                                                        <input type="button" *ngIf="editmode" class="btn profile-edit-btn text-white" (click)="onCancel()" name="btnAddMore" value="Cancel"/>
+                                                    </div>
+                                                    <div class="col-md-4 text-center" style ="padding: 5%;">
+                                                        <input type="button" *ngIf="!editmode" class="btn text-white" (click)="goToMomentPage()" name="btnAddMore" value="Go To Moment List"/>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </form>           
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</section>

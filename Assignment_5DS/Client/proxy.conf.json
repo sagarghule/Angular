@@ -1,0 +1,10 @@
+{
+    "/app/*" : 
+    {
+        "target" : "http://localhost:3400",
+        "pathRewrite":
+        {
+            "^/app":""
+        }
+    }
+}

@@ -1,0 +1,80 @@
+
+
+<section class="vh-120">
+    <div class="container py-5 h-20">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-10 col-lg-10 col-xl-10">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5">
+                <div>
+                    <form [formGroup]="momentForm" class="form-outline mb-4">
+                        <div class="row ">
+                            <div class="col-md-4">
+                                <div class="profile-img">
+                                    <img [src]="image" alt="profile photo"/>
+                                    <div class="file btn btn-lg btn-primary">
+                                        Upload Image
+                                        <input (change)="onFileSelect($event)" type="file" name="file"/>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <div class="col-md-8">
+                                
+                                <div class="row ">
+                                    <div class="col-md-8">
+                                        <div class="profile-head">
+                                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                  
+                                
+                                <div class="row ">
+                                    <div class="col-md-8">
+                                        <div class="tab-content profile-tab" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label>Title</label>
+                                                        </div>
+                                                        
+                                                        <div class="col-md-6">
+                                                            <input formControlName="title" class="form-control">
+                                                            <div class="alert alert-danger" *ngIf="submitted && f.title.errors && f.title.errors.required">Title is required</div>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label>Tags</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input formControlName="tag" class="form-control">
+                                                            <div class="alert alert-danger" *ngIf="submitted && f.tag.errors && f.tag.errors.required">Tag is required</div>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <hr class="my-4">
+                                                    <div class="col-md-4" style="float: left; padding: 3%;">
+                                                        <input type="button" class="btn profile-edit-btn text-white" (click)="onSubmit()" name="btnAddMore" value="Submit"/>
+                                                    </div>
+                                                   
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </form>           
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</section>
