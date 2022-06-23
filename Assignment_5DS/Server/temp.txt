@@ -1,9 +1,0 @@
-mongodb+srv://Sagar:<password>@cluster0.cmqis.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-
-password -> your password
-myFirstDatabase -> database name
-
-
-ways to connect node app with mongodb:
-    (1) using the mongoose packeage -> mongoose.connect(url,{configuration}).then().catch()
-    (2) using the mongodb package ->MongoClient.connect(url,clbkFun);
